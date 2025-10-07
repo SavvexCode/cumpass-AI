@@ -1,5 +1,6 @@
 from flask  import Flask,render_template,request,jsonify
 from core  import get_bot_response
+from os import environ
 
 #creating flask name
 app = Flask(__name__,static_folder='static',template_folder='templates')
@@ -20,4 +21,4 @@ def chat():
 
 #running app(local host:5000)
 if __name__ == '__main__':
-    app.run(debug=True)
+     app.run(host="0.0.0.0",port=int(environ.get("PORT", 5000)))
